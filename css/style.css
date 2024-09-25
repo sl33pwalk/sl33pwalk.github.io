@@ -186,7 +186,20 @@ body * {
 /* FINISH WORKTIME */
 
 
+
 /* Стили для виджета */
+
+/* Добавляем анимацию пульсации */
+/* Добавляем анимацию пульсации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
 .phone-widget {
     position: fixed;
     bottom: 20px;
@@ -195,19 +208,17 @@ body * {
     display: flex;
     align-items: center;
     width: 50px;
-    /* border-radius: 50%; */
-    /* background-color: red; */
 }
 
 .phone-icon {
     fill: #007BFF;
-    /* Цвет иконки */
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-color: #ddd;
     border-radius: 50%;
     padding: 5px;
     transition: transform 0.3s ease;
+    animation: pulse 1.5s infinite; /* Применяем анимацию */
 }
 
 .phone-tooltip {
@@ -215,15 +226,16 @@ body * {
     background: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 1rem 2rem;
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
 }
 
 .phone-widget:hover .phone-tooltip {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .phone-widget:hover .phone-icon {
@@ -384,7 +396,7 @@ body * {
     justify-content: space-between !important;
 }
 
-.feedback__submit {
+.feedback__submit, .back-button {
     color: #e3f2fd;
     border-radius: 50px !important;
     background-color: rgb(32, 32, 32);
@@ -392,7 +404,7 @@ body * {
     transition: all .25s;
 }
 
-.feedback__submit:hover {
+.feedback__submit:hover, .back-button:hover {
     background-color: rgb(77, 77, 77);
 }
 
@@ -409,4 +421,87 @@ body * {
     .cafe__desc {
         font-size: 25px;
     }
+}
+
+.product__type__title {
+    font-size: 30px;
+    background-color: #ddd;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.product__type {
+    /* background-image: url('../img/product.jpg'); */
+    /* height: 50vh; */
+    width: 100%;
+    border-radius: 15px;
+
+    /* border-radius: 20px; */
+    background-color: #fff;
+    -webkit-box-shadow: 3px 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 3px 6px 12px rgba(0,0,0,0.1);
+    /* height: 100%; */
+    /* width: 100%; */
+    /* display: -webkit-box; */
+    /* display: -ms-flexbox; */
+    /* display: flex; */
+    /* -webkit-box-orient: vertical; */
+    /* -webkit-box-direction: normal; */
+    /* -ms-flex-direction: column; */
+    /* flex-direction: column; */
+    /* position: relative */
+}
+
+.product__type__img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin: 0;
+    width: 100%;
+    height: 40vh;
+    border-radius: 15px 15px 0px 0px;
+
+
+}
+
+@media (max-width: 768px) {
+  .product__type__img {
+    /* width: 100%; */
+    /* height: 30vh; */
+    /* border-radius: 15px 15px 0px 0px; */
+
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 209px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+}
+
+.product__items {
+    flex-wrap: wrap !important;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    /* display: none; */
+}
+
+.navbar-brand {
+
+}
+
+.navbar-brand img {
+  width: 100%;
+  height: 5vh;
 }
